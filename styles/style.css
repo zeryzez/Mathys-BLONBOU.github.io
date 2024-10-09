@@ -1,0 +1,40 @@
+:root {
+  --MainBackgroud: #12110f;
+  --SecondaryBackground: #1c1816;
+  --UIBackground: #28211d;
+  --UIhoverBackground: #322922;
+  --ActiveUIBackground: #3e3128;
+  --SeparatorColor: #4d3c2f;
+  --BorderColor: #614a39;
+  --BorderHoverColor: #7c5f46;
+  --SolidBackground: #ad7f58;
+  --SolidHoverBackground: #b88c67;
+  --LowText: #dbb594;
+  --HighText: #f2e1ca;
+}
+
+.light-mode {
+  --MainBackgroud: #fcf9f6;
+  --SecondaryBackground: #fefdfc;
+  --UIBackground: #f6eee7;
+  --UIhoverBackground: #f0e4d9;
+  --ActiveUIBackground: #ebdaca;
+  --SeparatorColor: #e4cdb7;
+  --BorderColor: #dcbc9f;
+  --BorderHoverColor: #cea37e;
+  --SolidBackground: #ad7f58;
+  --SolidHoverBackground: #a07553;
+  --LowText: #815e46;
+  --HighText: #3e332e;
+}
+
+body {
+  background-color: var(--MainBackgroud);
+}
+
+nav {
+  border-bottom: 1px solid var(--SeparatorColor);
+  display: flex;
+  justify-content: space-between;
+  height: 200px;
+}
