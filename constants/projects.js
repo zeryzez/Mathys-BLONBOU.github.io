@@ -23,7 +23,7 @@ export const projects = [
     status: "En cours",
     image: "/img/projet/portfolio.png",
     video: "/img/projet/videoPortfolio.mp4",
-    technologies: ["HTML", "CSS", "JavaScript", "PHP"],
+    technologies: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/zeryzez/MyPortfolio",
     date: "En cours",
     categorie: "Site Web",

@@ -124,7 +124,6 @@ function showproject(project) {
 
   // Ajout d'un événement pour fermer la vue quand on clique sur l'overlay
   overlay.addEventListener("click", function (event) {
-    console.log(event.target);
     if (event.target === projectDiv || event.target === overlay) {
       overlay.remove();
       body.style.overflow = "auto";
