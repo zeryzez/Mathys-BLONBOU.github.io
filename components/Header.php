@@ -10,7 +10,7 @@
 
 <div class="banderole">
     <div class="texte-defilant">
-        <span>Recherche de stage pour date du 17/02 au 26/05</span>
+        <span>Recherche de stage du 17/02/2025 au 26/05/2025</span>
     </div>
 </div>
     

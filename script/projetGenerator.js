@@ -1,23 +1,22 @@
-import { projects } from '../constants/projects.js';
+import { projects } from "../constants/projects.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
+  document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
 
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                block: 'center' 
-            });
-        }
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          block: "center",
+        });
+      }
     });
-});
+  });
   // Fonction pour générer un projet avec une image, un titre, une description et les technologies
   function generateprojects(numprojects) {
-
     const projectContainer = document.getElementById("projet");
 
     for (let i = 0; i < numprojects; i++) {
@@ -25,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const projectDiv = document.createElement("div");
       projectDiv.classList.add("project");
 
-      const divImg = document.createElement("div"); 
+      const divImg = document.createElement("div");
       divImg.classList.add("divImg");
 
       // Ajouter une image
@@ -57,7 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
       status.textContent = `${projects[i].status}`;
       status.classList.add("status");
 
-      status.style.backgroundColor = projects[i].status === "Terminé" ? "#4a7d4d" : "#a8332a";
+      status.style.backgroundColor =
+        projects[i].status === "Terminé" ? "#4a7d4d" : "#a8332a";
 
       divTitle.appendChild(title);
       divTitle.appendChild(status);
@@ -86,36 +86,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Ajouter l'événement hover pour chaque projet
       const mediaContainer = divImg;
-      
-      mediaContainer.addEventListener('mouseenter', () => {
+
+      mediaContainer.addEventListener("mouseenter", () => {
         video.play();
       });
 
-      mediaContainer.addEventListener('mouseleave', () => {
+      mediaContainer.addEventListener("mouseleave", () => {
         video.pause();
         video.currentTime = 0;
       });
     }
   }
-  generateprojects(2); // Créez 2 projets par exemple
-  const projectDiv = document.querySelectorAll('.project');
+  generateprojects(projects.length); // Créez 2 projets par exemple
+  const projectDiv = document.querySelectorAll(".project");
 
   projectDiv.forEach((p) => {
-    p.addEventListener('click', function() {
-      const nomProjet = p.querySelector('h3').textContent;
+    p.addEventListener("click", function () {
+      const nomProjet = p.querySelector("h3").textContent;
       const index = rechDichoProjet(nomProjet);
       showproject(projects[index]);
     });
   });
-
 });
-
-
-
 
 // Fonction pour afficher les détails du projet en grand plan
 function showproject(project) {
-
   const body = document.querySelector("body");
   body.style.overflow = "hidden";
 
@@ -123,13 +118,12 @@ function showproject(project) {
   const overlay = document.createElement("div");
   overlay.classList.add("overlay");
 
-  
-  const projectDiv = document.createElement('div');
+  const projectDiv = document.createElement("div");
 
-  projectDiv.classList.add('projectDivPL');
+  projectDiv.classList.add("projectDivPL");
 
   // Ajout d'un événement pour fermer la vue quand on clique sur l'overlay
-  overlay.addEventListener("click", function(event) {
+  overlay.addEventListener("click", function (event) {
     console.log(event.target);
     if (event.target === projectDiv || event.target === overlay) {
       overlay.remove();
@@ -150,7 +144,8 @@ function showproject(project) {
   title.textContent = project.title;
   const titleStatus = document.createElement("p");
   titleStatus.textContent = project.status;
-  titleStatus.style.backgroundColor = project.status === "Terminé" ? "#4a7d4d" : "#a8332a";
+  titleStatus.style.backgroundColor =
+    project.status === "Terminé" ? "#4a7d4d" : "#a8332a";
 
   titleDiv.appendChild(title);
   titleDiv.appendChild(titleStatus);
@@ -180,7 +175,7 @@ function showproject(project) {
   image.src = project.image;
   image.alt = project.title;
   image.classList.add("imgPL");
-  
+
   const video = document.createElement("video");
   video.src = project.video;
   video.alt = project.title;
@@ -224,40 +219,38 @@ function showproject(project) {
   projetLong.appendChild(date);
 
   const categorie = document.createElement("p");
-  categorie.textContent ="Catégorie : " + project.categorie;
+  categorie.textContent = "Catégorie : " + project.categorie;
 
   projetLong.appendChild(categorie);
 
   // Crée et ajoute le bouton
   const button = document.createElement("button");
   button.textContent = "Fermer";
-  button.addEventListener("click", function() {
+  button.addEventListener("click", function () {
     overlay.remove();
     body.style.overflow = "auto";
   });
   projetLong.appendChild(button);
 
   const mediaContainer = divImg;
-      
-  mediaContainer.addEventListener('mouseenter', () => {
+
+  mediaContainer.addEventListener("mouseenter", () => {
     video.play();
   });
 
-  mediaContainer.addEventListener('mouseleave', () => {
+  mediaContainer.addEventListener("mouseleave", () => {
     video.pause();
     video.currentTime = 0;
   });
 
   const projectContainer = document.getElementById("projects-container");
 
-
   projectDiv.appendChild(projetLong);
   overlay.appendChild(projectDiv);
   projectContainer.appendChild(overlay);
-
 }
 
-function rechDichoProjet(nomProjet){
+function rechDichoProjet(nomProjet) {
   let debut = 0;
   let fin = projects.length - 1;
   let milieu;
@@ -272,23 +265,25 @@ function rechDichoProjet(nomProjet){
   return index;
 }
 
-document.getElementById("copyButton").addEventListener("click", copyToClipboard);
+document
+  .getElementById("copyButton")
+  .addEventListener("click", copyToClipboard);
 
 function copyToClipboard() {
-    const textToCopy = "mathys2004.b@gmail.com";
+  const textToCopy = "mathys2004.b@gmail.com";
 
-    navigator.clipboard.writeText(textToCopy).then(() => {
-        const message = document.getElementById("copyMessage");
-        message.classList.add("show");
+  navigator.clipboard.writeText(textToCopy).then(() => {
+    const message = document.getElementById("copyMessage");
+    message.classList.add("show");
 
-        setTimeout(() => {
-            message.classList.remove("show");
-        }, 1500);
-    })
+    setTimeout(() => {
+      message.classList.remove("show");
+    }, 1500);
+  });
 }
 
 let btn = document.getElementById("darkLightMode");
-btn.onclick = function() {
+btn.onclick = function () {
   document.body.classList.toggle("light-mode");
 
   let imgmode = document.getElementById("sunmoon");
@@ -298,35 +293,26 @@ btn.onclick = function() {
   let gps = document.getElementById("gps");
   let imgmoi = document.getElementById("moi");
 
-  let imgChanges = [
-    imgmode,
-    linkedin,
-    github,
-    mail,
-    gps
-  ]
+  let imgChanges = [imgmode, linkedin, github, mail, gps];
 
-  for (let element of imgChanges){
+  for (let element of imgChanges) {
     if (document.body.classList.contains("light-mode")) {
       element.src = element.src.replace("Dark", "Light");
-      if(element === imgmode){
+      if (element === imgmode) {
         element.src = element.src.replace("sun", "moon");
       }
     } else {
       element.src = element.src.replace("Light", "Dark");
-      if(element === imgmode){
+      if (element === imgmode) {
         element.src = element.src.replace("moon", "sun");
       }
+    }
+
+    if (element !== imgmoi) {
+      element.style.opacity = 0;
+      setTimeout(function () {
+        element.style.opacity = 1;
+      }, 300);
+    }
   }
-
-
-  if (element !== imgmoi) {
-    element.style.opacity = 0;
-    setTimeout(function() {
-      element.style.opacity = 1;
-    }, 300);
-  }
-  }};
-
-
-
+};
