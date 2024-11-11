@@ -1,4 +1,4 @@
-import { projects } from "../constants/projects.js";
+import { projects } from "constants/projects.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
@@ -162,7 +162,7 @@ function showproject(project) {
   redirection.textContent = "Voir le code source";
 
   const output = document.createElement("img");
-  output.src = "../img/outputDark.svg";
+  output.src = "img/outputDark.svg";
   output.alt = "lien github";
   output.classList.add("outputPL");
 
