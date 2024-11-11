@@ -716,12 +716,11 @@ nav ul a {
   flex-direction: column;
   align-self: flex-start;
   justify-content: space-evenly;
-  height: 400px;
+  min-height: 200px;
 }
 
 #contact #contact-container #contact-info ul {
   display: flex;
-  flex-direction: column;
   gap: 2rem;
 }
 
