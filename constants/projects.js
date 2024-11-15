@@ -41,4 +41,16 @@ export const projects = [
     date: "Décembre 2023",
     categorie: "Site Web",
   },
+  {
+    title: "Festival Nancy Rock Vibration",
+    description:"Un site web pour un festival de musique fictif à Nancy. Le site est réalisé en HTML, CSS et JavaScript.",
+    descriptionLong:"Un site web pour un festival de musique fictif à Nancy. Ce projet de groupe a été réalisé en HTML, CSS et JavaScript. Il contient des informations sur le festival, la programmation, les artistes. Le site est responsive et s'adapte à tous les écrans. Le site offre la possibilités de crées ces propres évenement si son role le permet, role qui est définit par un compte administrateur. J'y est caché un petit easter egg. Pourrez vous le trouver ?",
+    status:"Terminé",
+    image:"/img/projet/FestivalNRV.png",
+    video:"/img/projet/videoFestivalNRV.mp4",
+    technologies:["HTML","CSS","JavaScript"],
+    github:"https://github.com/Pegland64/SAE_Dev_Web_BLONBOU_CHAILAN_LOUNICI_HAUTION",
+    date:"Novembre 2024",
+    categorie:"Site Web",
+  }
 ];
